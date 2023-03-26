@@ -2,8 +2,8 @@
 
 -- ds.page: `ednet-content` package
 
-`ednet-content` is a `fastn` package that should be used for authoring content
-that is part of [`ednet-protocol`](https://www.ednet-protocol.com).
+`ednet-content` is a [`fastn`](https://fastn.io/) package that should be used
+for authoring content that is part of [`ednet-protocol`](https://www.ednet-protocol.com).
 
 -- end: ds.page
 
@@ -30,8 +30,15 @@ syllabus list syllabi:
 caption name:
 body about:
 string url:
+concept list concepts:
 
 
+
+
+-- record concept:
+caption name:
+body about:
+string url:
 
 
 
@@ -80,6 +87,9 @@ url: $show-syllabus.s.url
 
 
 
+
+
+
 -- component syllabus-page:
 caption syllabus s:
 
@@ -87,6 +97,49 @@ caption syllabus s:
 
 $syllabus-page.s.about
 
+-- show-concept: $c
+$loop$: $syllabus-page.s.concepts as $c
+
 
 -- end: ds.page
 -- end: syllabus-page
+
+
+
+
+
+
+-- component show-concept:
+caption concept c:
+
+-- ftd.column:
+spacing.fixed.px: 20
+
+-- ds.h1: $show-concept.c.name
+
+$show-concept.c.about
+
+-- lib.button: $show-concept.c.name
+role: small
+url: $show-concept.c.url
+
+-- end: ftd.column
+
+-- end: show-concept
+
+
+
+
+
+
+
+-- component concept-page:
+caption concept c:
+
+-- ds.page: $concept-page.c.name
+
+$concept-page.c.about
+
+
+-- end: ds.page
+-- end: concept-page
