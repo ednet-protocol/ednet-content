@@ -1,51 +1,92 @@
--- import: ednet-protocol.github.io/ednet-content/assets
+-- import: fifthtry.github.io/virastral/lib
+
+-- ds.page: `ednet-content` package
+
+`ednet-content` is a `fastn` package that should be used for authoring content
+that is part of [`ednet-protocol`](https://www.ednet-protocol.com).
+
+-- end: ds.page
 
 
 
--- ds.page: Welcome to your [FASTN site](https://fastn.io/)
+
+
+
+
+
+
+
+-- record board:
+caption name:
+body about:
+syllabus list syllabi:
+
+
+
+
+
+
+-- record syllabus:
+caption name:
+body about:
+string url:
+
+
+
+
+
+
+
+
+-- component board-page:
+caption board board:
+
+-- ds.page: $board-page.board.name
+
+$board-page.board.about
+
+-- show-syllabus: $s
+$loop$: $board-page.board.syllabi as $s
+
+-- end: ds.page
+
+-- end: board-page
+
+
+
+
+
+
+
+
+-- component show-syllabus:
+caption syllabus s:
 
 -- ftd.column:
-align-self: center
+spacing.fixed.px: 20
 
--- chat.message-left: Yo! I am Amit Upadhyay, CEO of FifthTry, welcome to the new world of FTD.
+-- ds.h1: $show-syllabus.s.name
 
--- ds.markdown: 
+$show-syllabus.s.about
 
-You reached the right place, and from here let me assure you, your FTD journey is going superfast. 🙂
-
--- end: chat.message-left
-
--- chat.message-right:  😊 Liking this chat component?
-
--- ds.markdown:
-
-[Click here to learn more](https://fifthtry.github.io/bling/chat/)
-👍
-
--- end: chat.message-right
+-- lib.button: $show-syllabus.s.name
+role: small
+url: $show-syllabus.s.url
 
 -- end: ftd.column
 
--- ds.h1: How to use?
-
-It's very simple like making a sandwich. Create new `.ftd` file and just say:
-
--- ds.code: `-- ds.page` 
-lang: ftd
-
-\-- ds.page: Your page title goes here
-
-Your page content goes here.
+-- end: show-syllabus
 
 
--- ds.h1: Need sidebar at right side of page?
-
-Here it is, [use this document](https://fifthtry.github.io/doc-site/docs/right-sidebar/).
 
 
--- ds.h1: 👀 Learn FTD and become a pro?
+-- component syllabus-page:
+caption syllabus s:
 
-You are one click away, just check [our documentation](https://fastn.dev/) and 
-dont forget to jump into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
+-- ds.page: $syllabus-page.s.name
+
+$syllabus-page.s.about
+
 
 -- end: ds.page
+-- end: syllabus-page
